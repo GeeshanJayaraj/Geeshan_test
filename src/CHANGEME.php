@@ -10,7 +10,7 @@ class CHANGEME {
 	 * Function
 	 */
 	function hello() {
-		return 'hell';
+		return 'hello';
 	}
 }
 
