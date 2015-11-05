@@ -2,10 +2,10 @@
 
 <project name="jentest" default="build">
  <target name="build"
-   depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpdox,phpunit,cuke4php,phpcb"/>
+   depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpdox,phpunit"/>
 
  <target name="build-parallel"
-   depends="prepare,lint,tools-parallel,phpunit,phpcb"/>
+   depends="prepare,lint,tools-parallel,phpunit"/>
 
  <target name="tools-parallel"
          description="Run tools in parallel">
@@ -151,23 +151,5 @@
   <exec executable="phpunit" failonerror="true"/>
  </target>
 
- <target name="cuke4php" description="Run unit tests with cuke4PHP">
-  <exec executable="cuke4php" failonerror="true">
-   <arg value="--no-color" />
-   <arg value="--require" />
-   <arg value="features/" />
-  </exec>
- </target>
-
- <target name="phpcb"
-         description="Aggregate tool output with PHP_CodeBrowser">
-  <exec executable="phpcb">
-   <arg value="--log" />
-   <arg path="${basedir}/build/logs" />
-   <arg value="--source" />
-   <arg path="${basedir}/src" />
-   <arg value="--output" />
-   <arg path="${basedir}/build/code-browser" />
-  </exec>
- </target>
+ 
 </project>
