@@ -2,13 +2,13 @@
 
 <project name="jentest" default="build">
  <target name="build"
-   depends="clean,prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpdox,phpunit"/>
+   depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpdox,phpunit"/>
 
  <target name="build-parallel"
    depends="prepare,lint,tools-parallel,phpunit"/>
 
  <target name="tools-parallel"
-         description="Run tools in parallel">
+         description="Run tools in parallel" depends="clean">
   <parallel threadCount="2">
    <sequential>
     <antcall target="pdepend"/>
