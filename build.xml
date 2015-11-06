@@ -8,7 +8,7 @@
    depends="prepare,lint,tools-parallel,phpunit"/>
 
  <target name="tools-parallel"
-         description="Run tools in parallel" >
+         description="Run tools in parallel" depends="cleanonly">
   <parallel threadCount="2">
    <sequential>
     <antcall target="pdepend"/>
@@ -33,13 +33,11 @@
  
  <target name="prepareonly" 
          description="Prepare for build">
-  <mkdir dir="${basedir}/build/api"/>
-  <mkdir dir="${basedir}/build/code-browser"/>
-  <mkdir dir="${basedir}/build/coverage"/>
-  <mkdir dir="${basedir}/build/api/xml"/>
   <mkdir dir="${basedir}/build/logs"/>
-  <mkdir dir="${basedir}/build/pdepend"/>
-  <mkdir dir="${basedir}/build/phpdox"/>
+ </target>
+
+<target name="cleanonly" description="Cleanup build artifacts">
+  <delete dir="${basedir}/build/logs"/>
  </target>
 
  <target name="prepare" depends="clean,phpab"
