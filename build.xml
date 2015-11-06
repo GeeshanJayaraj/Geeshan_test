@@ -37,7 +37,7 @@
  </target>
 
 <target name="cleanonly" description="Cleanup build artifacts">
-  <delete dir="${basedir}/build/logs"/>
+  <delete file="${basedir}/build/logs/junit.xml"/>
  </target>
 
  <target name="prepare" depends="clean,phpab"
